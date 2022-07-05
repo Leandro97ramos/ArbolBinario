@@ -77,12 +77,13 @@ public class Nodo {
 
 
 
-    public void recorroImprimir(AccionEj a){
+    public void recorroImprimir(AccionEj a ,ArrayList<Object> s){
         
         
+        s.add(getValor());
         a.ejecutarNodo(getValor());
-        getPreorden(a, getIzq());
-        getPreorden(a, getDer());
+        recorrerNodo(a, getIzq(),s);
+        recorrerNodo(a, getDer(),s);
     
       
     }
@@ -100,13 +101,15 @@ public class Nodo {
     }
 
 
-    public void getPreorden(AccionEj a, Nodo n) {
-    
+    public void recorrerNodo(AccionEj a, Nodo n , ArrayList<Object> s) {
+        
+       
         if (n == null) {
             return;
         }else{
 
-            n.recorroImprimir(a );
+            n.recorroImprimir(a ,s);
+
          
 
         }

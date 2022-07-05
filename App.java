@@ -38,9 +38,9 @@ int n2 = 100;
       oDesc.ejecutarNodo(arb);
       */
       
-        arb.getPreorden(oAsc);
+        arb.getArbolBinario(oAsc);
         System.out.println("---------");
-        arb.getPreorden(oDesc);
+        arb.getArbolBinario(oDesc);
   
 
 
