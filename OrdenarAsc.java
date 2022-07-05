@@ -1,16 +1,16 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 public class OrdenarAsc implements AccionEj {
 
     @Override
-    public void ejecutarNodo(ArbolBinario nodo) {
+    public void ejecutarNodo(Object nodo) {
         
         ArrayList<Object> salida = new ArrayList<>();
 
-        //alida.addAll(nodo.getNumsOrd());
+        salida.add(nodo);
 
-        nodo.getPreordenOrdenado(salida);    
         System.out.println(salida);
 
 

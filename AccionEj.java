@@ -1,6 +1,6 @@
 
 public interface   AccionEj {
     
-    void ejecutarNodo(ArbolBinario nodo);
+    void ejecutarNodo(Object nodo);
 
 }

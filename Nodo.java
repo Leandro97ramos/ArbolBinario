@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 
 /**
  * nodo
  */
-public class Nodo extends Comp {
+public class Nodo {
     int valor;
   
 
@@ -46,15 +47,15 @@ public class Nodo extends Comp {
         this.valor = valor;
     }
 
-    public void insertar(Nodo n) {
+    public void insertar(int n) {
         //verificamos que no sea igual
-        if ( n.getValor() != this.valor) {
+        if ( this.getValor() !=  n) {
             //verificamos si va a la izq
             
-            if (compareTo(n) > 0 ) {
-                if (izq == null) {
+            if (valor > n ) {
+                if (this.getIzq() == null) {
                     //creamos
-                    this.izq = new Nodo(n.getValor());
+                    this.izq = new Nodo(n);
                 }    else{
                     //insertamos
                     this.izq.insertar(n);
@@ -63,7 +64,7 @@ public class Nodo extends Comp {
             }else{
                 if (der == null) {
                     //creamos
-                    this.der = new Nodo(n.getValor());
+                    this.der = new Nodo(n);
                 }else{
                     this.der.insertar(n);
                 }
@@ -75,22 +76,20 @@ public class Nodo extends Comp {
 
 
 
-    
-    public void recorroImprimir(Nodo n){
+
+    public void recorroImprimir(AccionEj a){
         
-        System.out.println(n.getValor());   
-        recorroImprimir(n.getIzq());
-        recorroImprimir(n.getDer());
+        
+        a.ejecutarNodo(getValor());
+        getPreorden(a, getIzq());
+        getPreorden(a, getDer());
+    
+      
     }
 
 
    
 
-
-    @Override
-    public int compareTo(Nodo o) {
-        return this.valor - o.getValor();
-    }
 
 
     @Override
@@ -98,6 +97,19 @@ public class Nodo extends Comp {
 
         return String.valueOf(this.getValor());
 
+    }
+
+
+    public void getPreorden(AccionEj a, Nodo n) {
+    
+        if (n == null) {
+            return;
+        }else{
+
+            n.recorroImprimir(a );
+         
+
+        }
     }  
   
 

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ArbolBinario extends Comp{
+public class ArbolBinario {
     Nodo inicial;        
 
 
@@ -9,9 +9,9 @@ public class ArbolBinario extends Comp{
     }
 
     
-    public void insertar(Nodo n) {
+    public void insertar(int n) {
         if (this.inicial == null) {
-            this.inicial = new Nodo(n.getValor());
+            this.inicial = new Nodo(n);
         }else{
             this.inicial.insertar(n);
         }
@@ -19,43 +19,30 @@ public class ArbolBinario extends Comp{
         
     }
 
-    public void getPreorden(){
-        this.preorden(inicial);
+    public void getPreorden(AccionEj a){
+        this.preorden(inicial, a);
     }
 
-    public void preorden(Nodo n){
+
+    public void preorden(Nodo n , AccionEj a){
         if (n == null) {
             return;
         }else{
-            mostrarArbolPreorden(n);
+            n.getPreorden(a ,n);
+            
+            
+
         }
 
     }
 
 
-    
-    public void mostrarArbolPreorden(Nodo n) {
-        System.out.println(n.getValor());
-        preorden(n.getIzq());
-        preorden(n.getDer());
-        
-    }
-
-
-    @Override
-    public String toString() {
-
-        return this.getNumsOrd().toString();
-
-    }
+  
 
 
 
- 
+   
 
-
-
-    
     public void getPreordenOrdenado(ArrayList<Object> salida){
         this.preordenOrdenado(this.inicial , salida);
     }
@@ -80,28 +67,17 @@ public class ArbolBinario extends Comp{
     }
 
 
- /**
-  * 
-  * @param Nodo
-  * @return Arrlist nodo
- */
-    public ArrayList<Integer> getNumsOrd() {
-        ArrayList<Integer> salida = new ArrayList<>();
+ 
+    @Override
+    public String toString() {
 
-       // getPreordenOrdenado(salida);
+        return this.inicial.toString();
 
-        return salida;
     }
 
 
 
-public int compareTo(Nodo o) {
-    return this.inicial.compareTo(o) ;
-}
-
-
-
-
+ 
  
 
 

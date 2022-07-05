@@ -4,15 +4,18 @@ import java.util.Collections;
 public class OrdenarDesc implements AccionEj  {
     
 
-    @Override
-    public void ejecutarNodo(ArbolBinario nodo) {
+    public void ejecutarNodo(Object nodo) {
         
+
         ArrayList<Object> salida = new ArrayList<>();
 
-        //alida.addAll(nodo.getNumsOrd());
 
-        nodo.getPreordenOrdenado(salida);    
+
+        salida.add(nodo);
+        
         Collections.reverse(salida);
+       
+
         System.out.println(salida);
 
 
